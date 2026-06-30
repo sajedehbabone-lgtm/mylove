@@ -1,0 +1,376 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Vazirmatn",sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(to bottom,#02142b,#05254f,#0b3c73);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ستاره‌ها */
+
+#stars{
+    position:fixed;
+    inset:0;
+    background-image:
+    radial-gradient(white 1px,transparent 1px),
+    radial-gradient(white 1px,transparent 1px),
+    radial-gradient(white 2px,transparent 2px);
+
+    background-size:120px 120px,
+                    180px 180px,
+                    260px 260px;
+
+    animation:stars 80s linear infinite;
+    opacity:.55;
+    z-index:-1;
+}
+
+@keyframes stars{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-300px);
+    }
+
+}
+
+/* صفحه اول */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:30px;
+}
+
+.hero h1{
+
+    font-size:58px;
+    margin-bottom:25px;
+    text-shadow:0 0 25px #5eb8ff;
+
+}
+
+.hero p{
+
+    max-width:700px;
+    line-height:2;
+    font-size:20px;
+    opacity:.9;
+
+}
+
+button{
+
+    margin-top:50px;
+    padding:18px 45px;
+    border:none;
+    border-radius:50px;
+    background:rgba(255,255,255,.12);
+    color:white;
+    backdrop-filter:blur(12px);
+    cursor:pointer;
+    transition:.4s;
+    font-size:18px;
+}
+
+button:hover{
+
+    transform:scale(1.08);
+    background:#3ea2ff;
+    box-shadow:0 0 35px #49a8ff;
+
+}
+
+/* متن‌ها */
+
+.message{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:70px 25px;
+
+    opacity:1;
+
+    transition:1.5s;
+}
+
+.message p{
+
+    max-width:800px;
+
+    line-height:2.4;
+
+    font-size:24px;
+
+    margin:18px 0;
+
+    text-shadow: 0 0 12px rgba(225, 225, 225, .2);
+
+    letter-spacing: .5px;
+
+
+}
+
+.message h2{
+
+    font-size:45px;
+
+    margin-bottom:35px;
+
+    color:#7fc7ff;
+
+}
+
+/* مخفی */
+
+.hidden{
+    opacity:0;
+    transform:translateY(60px) scale(.98);
+    filter:blur(8px);
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease,
+        filter 1.5s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+}
+
+/* موبایل */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+}
+
+.message p{
+
+font-size:20px;
+
+line-height:2.2;
+
+}
+
+.message h2{
+
+font-size:35px;
+
+}
+
+button{
+
+font-size:16px;
+
+padding:15px 35px;
+
+}
+
+}
+/* ماه */
+
+.moon{
+    position:fixed;
+    top:60px;
+    left:70px;
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    background: radial-gradient(circle at 35% 35%,
+        #fff7c2 0%,
+        #ffeaa0 35%,
+        #f7d774 60%,
+        #d9b85a 100%
+    );
+
+    box-shadow:
+        0 0 40px rgba(255, 230, 150, .8),
+        0 0 90px rgba(255, 210, 120, .5);
+
+    z-index:-1;
+
+    animation:moonFloat 8s ease-in-out infinite;
+
+    overflow:hidden;
+}
+
+/* این قسمت ماه رو "نصفه" می‌کنه */
+
+.moon::after{
+    content:"";
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    background: linear-gradient(to right, #02142b 50%, transparent 50%);
+
+    top:0;
+    left:0;
+
+    border-radius:50%;
+}
+
+/* حرکت نرم ماه */
+@keyframes moonFloat{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+.star{
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes twinkle{
+    from{
+        opacity: .2;
+        transform: scale(.7);
+    }
+
+    to{
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+.cloud{
+    position: fixed;
+    background: rgba(255,255,255,.08);
+    filter: blur(18px);
+    border-radius: 100px;
+    z-index: -1;
+    animation: moveClouds linear infinite;
+}
+
+.cloud1{
+    width:220px;
+    height:70px;
+
+    top:140px;
+
+    animation-duration:70s;
+}
+
+.cloud2{
+    width:300px;
+    height:90px;
+
+    top:320px;
+
+    animation-duration:95s;
+}
+
+.cloud3{
+    width:180px;
+    height:60px;
+
+    top:540px;
+
+    animation-duration:60s;
+}
+
+@keyframes moveClouds{
+
+    from{
+
+        left:-350px;
+
+    }
+
+    to{
+
+        left:120%;
+
+    }
+
+}
+.music-btn{
+
+position:fixed;
+
+top:25px;
+right:25px;
+
+width:60px;
+height:60px;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+font-size:28px;
+
+cursor:pointer;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(10px);
+
+transition:.4s;
+
+box-shadow:0 0 20px rgba(255,255,255,.2);
+
+}
+
+.music-btn:hover{
+
+transform:scale(1.1);
+
+background:#2f9bff;
+
+}
